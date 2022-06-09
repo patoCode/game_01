@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlMainContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:id="@+id/llHeader"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bolivia"
+            android:scaleType="fitCenter"
+            android:layout_weight="1"
+            />
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="MINISTERIO DE HIDROCARBUROS Y ENERGÍAS"
+            android:gravity="left|center"
+            android:layout_gravity="center"
+            android:textColor="@color/text_color"
+            android:textSize="14dp"
+            android:layout_marginStart="15dp"
+            android:layout_weight="1"
+            />
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ende_corp"
+            android:scaleType="fitCenter"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_below="@+id/llHeader"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        >
+        <RelativeLayout
+            android:id="@+id/llControls"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center"
+            >
+
+            <LinearLayout
+                android:id="@+id/llContainerLive"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/bg_live"
+                android:orientation="horizontal"
+                android:paddingTop="12dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="12dp"
+                android:paddingBottom="12dp"
+                android:elevation="5dp"
+                >
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="0"
+                    android:src="@drawable/heart" />
+                <TextView
+                    android:id="@+id/tvLive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="3"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llScore"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llContainerLive"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/bg_live"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:padding="12dp"
+                android:gravity="center"
+                android:elevation="5dp"
+                >
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="0"
+                    android:src="@drawable/point"
+                    />
+                <TextView
+                    android:id="@+id/tvScore"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="25dp"
+                    tools:text="15"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    />
+            </LinearLayout>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btnPlay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llScore"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:elevation="0dp"
+                app:elevation="0dp"
+                android:src="@drawable/ic_start"
+                app:backgroundTint="#019DDB"
+                app:borderWidth="0dp"
+                app:maxImageSize="40dp"
+                app:tint="#72E3E3"
+
+                />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btnReset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnPlay"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:elevation="0dp"
+                android:src="@drawable/ic_refresh"
+                app:backgroundTint="#F5D172"
+                app:borderWidth="0dp"
+                app:elevation="0dp"
+                app:maxImageSize="30dp"
+                app:tint="#F5F5F4"
+
+                />
+
+
+
+        </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/llTablero"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+
+            android:layout_gravity="center"
+            android:gravity="center"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center|start"
+                    >
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+                        <ImageButton
+                            android:id="@+id/ib11"
+                            tools:background="@color/teal_200"
+                            android:background="@null"
+                            style="@style/cards_background"
+
+                            android:layout_column="0" />
+                        <ImageButton
+                            android:id="@+id/ib12"
+                            tools:background="@color/teal_200"
+                            android:background="@null"
+                            style="@style/cards_background"
+                            android:layout_column="1" />
+                        <ImageButton
+                            android:id="@+id/ib13"
+                            tools:background="@color/teal_200"
+                            android:background="@null"
+                            style="@style/cards_background"
+
+                            android:layout_column="1" />
+                        <ImageButton
+                            android:id="@+id/ib14"
+                            tools:background="@color/teal_200"
+                            android:background="@null"
+                            style="@style/cards_background"
+
+                            android:layout_column="1"
+                            />
+                    </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <ImageButton
+                            android:id="@+id/ib21"
+                            tools:background="@color/teal_200"
+                            android:background="@null"
+                            style="@style/cards_background"
+                            android:layout_column="0" />
+
+                        <ImageButton
+                            android:id="@+id/ib22"
+                            tools:background="@color/teal_200"
+                            android:background="@null"
+                            style="@style/cards_background"
+
+                            android:layout_column="1" />
+                        <ImageButton
+                            android:id="@+id/ib23"
+                            tools:background="@color/teal_200"
+                            android:background="@null"
+                            style="@style/cards_background"
+
+                            android:layout_column="1" />
+
+                        <ImageButton
+                            android:id="@+id/ib24"
+                            tools:background="@color/teal_200"
+                            android:background="@null"
+                            style="@style/cards_background"
+
+                            android:layout_column="1" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <ImageButton
+                            android:id="@+id/ib31"
+                            tools:background="@color/teal_200"
+                            android:background="@null"
+                            style="@style/cards_background"
+                            android:layout_column="0" />
+
+                        <ImageButton
+                            android:id="@+id/ib32"
+                            tools:background="@color/teal_200"
+                            android:background="@null"
+                            style="@style/cards_background"
+                            android:layout_column="1"
+                            />
+                        <ImageButton
+                            android:id="@+id/ib33"
+                            tools:background="@color/teal_200"
+                            android:background="@null"
+                            style="@style/cards_background"
+                            android:layout_column="1" />
+                        <ImageButton
+                            android:id="@+id/ib34"
+                            tools:background="@color/teal_200"
+                            android:background="@null"
+                            style="@style/cards_background"
+                            android:layout_column="1" />
+                    </TableRow>
+                </TableLayout>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/btnPower"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_off"
+                    android:layout_marginTop="10dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="20dp"
+                    app:backgroundTint="#F34542"
+                    app:fabCustomSize="32dp"
+                    app:maxImageSize="20dp"
+                    app:tint="#FFFFFF"
+                    android:elevation="0dp"
+                    app:elevation="0dp"
+                    app:borderWidth="0dp"
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
