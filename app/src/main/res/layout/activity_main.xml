@@ -63,100 +63,93 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/bg_live"
+                android:elevation="2dp"
                 android:orientation="horizontal"
-                android:paddingTop="12dp"
                 android:paddingLeft="20dp"
+                android:paddingTop="12dp"
                 android:paddingRight="12dp"
-                android:paddingBottom="12dp"
-                android:elevation="5dp"
-                >
+                android:paddingBottom="12dp">
+
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:layout_weight="0"
                     android:src="@drawable/heart" />
+
                 <TextView
                     android:id="@+id/tvLive"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:fontFamily="@font/knewave"
                     android:text="3"
-                    android:textColor="@color/white"
                     android:textAlignment="center"
+                    android:textColor="@color/text_color"
                     android:textSize="25dp"
-                    android:textStyle="bold"
-                    />
+                    android:textStyle="bold" />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/llScore"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/llContainerLive"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/bg_live"
-                android:orientation="horizontal"
                 android:layout_marginTop="15dp"
-                android:padding="12dp"
+                android:background="@drawable/bg_live"
+                android:elevation="2dp"
                 android:gravity="center"
-                android:elevation="5dp"
-                >
+                android:orientation="horizontal"
+                android:padding="12dp">
+
                 <ImageView
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_gravity="center"
                     android:layout_weight="0"
-                    android:src="@drawable/point"
-                    />
+                    android:src="@drawable/point" />
+
                 <TextView
                     android:id="@+id/tvScore"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:textSize="25dp"
-                    tools:text="15"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/knewave"
                     android:textAlignment="center"
-                    />
+                    android:textColor="@color/text_color"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    tools:text="15" />
             </LinearLayout>
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
+            <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/btnPlay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/btn_control"
+                android:layout_height="@dimen/btn_control"
                 android:layout_below="@+id/llScore"
-                android:layout_centerHorizontal="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="50dp"
-                android:elevation="0dp"
-                app:elevation="0dp"
+                android:clickable="true"
+                android:background="@drawable/bg_btn_start"
+                android:elevation="2dp"
                 android:src="@drawable/ic_start"
-                app:backgroundTint="#019DDB"
-                app:borderWidth="0dp"
-                app:maxImageSize="40dp"
-                app:tint="#72E3E3"
+                android:tint="@color/white" />
 
-                />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
+            <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/btnReset"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/btnPlay"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:elevation="0dp"
+                android:layout_width="@dimen/btn_control"
+                android:layout_height="@dimen/btn_control"
+                android:layout_below="@+id/llScore"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/bg_btn_reset"
+                android:clickable="true"
+                android:elevation="2dp"
                 android:src="@drawable/ic_refresh"
-                app:backgroundTint="#F5D172"
-                app:borderWidth="0dp"
-                app:elevation="0dp"
-                app:maxImageSize="30dp"
-                app:tint="#F5F5F4"
-
-                />
-
-
-
+                android:tint="@color/white" />
         </RelativeLayout>
         <LinearLayout
             android:id="@+id/llTablero"
@@ -188,21 +181,23 @@
                         <ImageButton
                             android:id="@+id/ib11"
                             tools:background="@color/teal_200"
-                            android:background="@null"
                             style="@style/cards_background"
-
+                            android:clickable="true"
+                            android:background="@null"
                             android:layout_column="0" />
                         <ImageButton
                             android:id="@+id/ib12"
                             tools:background="@color/teal_200"
                             android:background="@null"
                             style="@style/cards_background"
+                            android:clickable="true"
                             android:layout_column="1" />
                         <ImageButton
                             android:id="@+id/ib13"
                             tools:background="@color/teal_200"
                             android:background="@null"
                             style="@style/cards_background"
+                            android:clickable="true"
 
                             android:layout_column="1" />
                         <ImageButton
@@ -210,6 +205,7 @@
                             tools:background="@color/teal_200"
                             android:background="@null"
                             style="@style/cards_background"
+                            android:clickable="true"
 
                             android:layout_column="1"
                             />
@@ -224,6 +220,7 @@
                             tools:background="@color/teal_200"
                             android:background="@null"
                             style="@style/cards_background"
+                            android:clickable="true"
                             android:layout_column="0" />
 
                         <ImageButton
@@ -231,6 +228,7 @@
                             tools:background="@color/teal_200"
                             android:background="@null"
                             style="@style/cards_background"
+                            android:clickable="true"
 
                             android:layout_column="1" />
                         <ImageButton
@@ -238,6 +236,7 @@
                             tools:background="@color/teal_200"
                             android:background="@null"
                             style="@style/cards_background"
+                            android:clickable="true"
 
                             android:layout_column="1" />
 
@@ -246,6 +245,7 @@
                             tools:background="@color/teal_200"
                             android:background="@null"
                             style="@style/cards_background"
+                            android:clickable="true"
 
                             android:layout_column="1" />
                     </TableRow>
@@ -259,6 +259,7 @@
                             tools:background="@color/teal_200"
                             android:background="@null"
                             style="@style/cards_background"
+                            android:clickable="true"
                             android:layout_column="0" />
 
                         <ImageButton
@@ -266,6 +267,7 @@
                             tools:background="@color/teal_200"
                             android:background="@null"
                             style="@style/cards_background"
+                            android:clickable="true"
                             android:layout_column="1"
                             />
                         <ImageButton
@@ -273,31 +275,30 @@
                             tools:background="@color/teal_200"
                             android:background="@null"
                             style="@style/cards_background"
+                            android:clickable="true"
                             android:layout_column="1" />
                         <ImageButton
                             android:id="@+id/ib34"
                             tools:background="@color/teal_200"
                             android:background="@null"
                             style="@style/cards_background"
+                            android:clickable="true"
                             android:layout_column="1" />
                     </TableRow>
                 </TableLayout>
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/btnPower"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/ic_off"
+                    android:layout_width="@dimen/btn_control"
+                    android:layout_height="@dimen/btn_control"
                     android:layout_marginTop="10dp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_margin="20dp"
+                    android:src="@drawable/ic_off"
+                    android:clickable="true"
                     app:backgroundTint="#F34542"
-                    app:fabCustomSize="32dp"
-                    app:maxImageSize="20dp"
                     app:tint="#FFFFFF"
-                    android:elevation="0dp"
-                    app:elevation="0dp"
-                    app:borderWidth="0dp"
+                    android:elevation="1dp"
                     />
             </RelativeLayout>
         </LinearLayout>

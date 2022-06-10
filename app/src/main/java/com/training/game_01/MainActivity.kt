@@ -1,29 +1,16 @@
 package com.training.game_01
 
-import android.content.DialogInterface
+import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
+import android.os.*
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
+import android.widget.*
 import com.training.game_01.R.drawable.*
 import com.training.game_01.databinding.ActivityMainBinding
-import com.training.game_01.databinding.DialogGameEndBinding
 import java.util.*
 import kotlin.collections.ArrayList
-import java.util.Timer
-import kotlin.concurrent.schedule
-
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
 
     private lateinit var binding : ActivityMainBinding
     /* VARIABLES AUXILIARES*/
@@ -35,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     /* AUXILIARES - GAMEPLAY */
     private var _baseArrayShuffle = arrayListOf<Int>()
-    val _cardsImgs = arrayListOf<Int>()
+    var _cardsImgs = arrayListOf<Int>()
     private var _baseCard:ImageButton? = null
     private var _baseImg :Int = 0
     private var _matchImg :Int = 0
@@ -48,6 +35,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         actionButtons()
+        init()
+
     }
     fun actionButtons() {
         binding.btnPlay.setOnClickListener(View.OnClickListener { init() })
@@ -69,12 +58,16 @@ class MainActivity : AppCompatActivity() {
         _panelImages[11] = binding.ib34
     }
     private fun _reset(){
+
         _scoreGoals = 0
         _lives = 3
+        _lockPanel = false
+        _baseCard =null
         binding.tvScore.text = _scoreGoals.toString()
         binding.tvLive.text = _lives.toString()
     }
     private fun _loadCardsImg(){
+        _cardsImgs = arrayListOf<Int>()
         _cardsImgs.addAll(
             listOf(f01,f02,f03,f04,f05,f06)
         )
@@ -89,6 +82,7 @@ class MainActivity : AppCompatActivity() {
         return res
     }
     private fun _evaluate(i:Int, _btnTap:ImageButton){
+        Log.d("DENIS", _scoreGoals.toString())
         if(_baseCard == null){
             _baseCard = _btnTap
             _baseCard!!.scaleType = ImageView.ScaleType.CENTER_CROP
@@ -106,14 +100,16 @@ class MainActivity : AppCompatActivity() {
                 _lockPanel = false
                 _scoreGoals++
                 binding.tvScore.text = _scoreGoals.toString()
+                Log.d("DENIS", _scoreGoals.toString())
+                Log.d("DENIS", _cardsImgs.size.toString())
                 if(_scoreGoals === _cardsImgs.size){
-                    Toast.makeText(applicationContext, "Has ganado!!", Toast.LENGTH_LONG).show()
+                    _showWinDialog()
                 }
             }else{
                 handler.postDelayed({
                     _lives--
                     if(_lives == 0){
-                        showEndDialog()
+                        _showEndDialog()
                     }else{
                         _lockPanel = false
                         _baseCard!!.scaleType = ImageView.ScaleType.CENTER_CROP
@@ -131,8 +127,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    private fun showEndDialog() {
-        val view = View.inflate(this@MainActivity, R.layout.dialog_game_end, null)
+    private fun _showEndDialog() {
+        val view = View.inflate(this@MainActivity, R.layout.dialog_game_lose, null)
         val builder = AlertDialog.Builder(this@MainActivity)
         builder.setView(view)
 
@@ -140,11 +136,24 @@ class MainActivity : AppCompatActivity() {
         dialog.show()
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
-        var btn : Button = view.findViewById<Button>(R.id.btnConfirm)
+        var btn : Button = view.findViewById<Button>(R.id.btnLoseOk)
         btn.setOnClickListener {
             dialog.dismiss()
-            dialog.cancel()
-            binding.rlMainContainer.removeView(view)
+            init()
+        }
+    }
+    private fun _showWinDialog() {
+        val view = View.inflate(this@MainActivity, R.layout.dialog_game_win, null)
+        val builder = AlertDialog.Builder(this@MainActivity)
+        builder.setView(view)
+
+        val dialog = builder.create()
+        dialog.show()
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        var btn : Button = view.findViewById<Button>(R.id.btnWinOk)
+        btn.setOnClickListener {
+            dialog.dismiss()
             init()
         }
     }
@@ -152,7 +161,6 @@ class MainActivity : AppCompatActivity() {
             _loadPanel()
             _loadCardsImg()
             _baseArrayShuffle = _shuffleCards(_panelImages.size)
-
             for (i in 0 until _panelImages.size){
                 _panelImages[i]!!.scaleType = ImageView.ScaleType.CENTER_CROP
                 _panelImages[i]!!.setImageResource(_cardsImgs[_baseArrayShuffle[i]])
@@ -174,4 +182,6 @@ class MainActivity : AppCompatActivity() {
             }
             _reset()
         }
+
+
 }

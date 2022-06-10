@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">game_01</string>
+    <string name="app_name">MEMOrama</string>
+    <string name="win">Felicidades, Ganaste!</string>
+    <string name="lose">Perdiste!</string>
+    <string name="try_again">Intentarlo otra vez</string>
+    <string name="play_again">Jugar otra vez!</string>
+    <string name="powered">Powered by ENDE TECNOLOGÍAS S.A.</string>
 </resources>
